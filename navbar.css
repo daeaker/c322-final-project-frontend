@@ -15,6 +15,7 @@ ul.topnav {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: large;
   }
   
   ul.topnav li a:hover:not(.active) {background-color: #fee4ff;}
