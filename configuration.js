@@ -110,6 +110,7 @@ async function login() {
         removeTheToken();       
         alert("Something went wrong!");
       }    
+      window.localStorage.setItem("loggedin", true)
 }
 
 async function logout() {   
