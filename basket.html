@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a question</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="basket.css">
+  </head>
+  <body>
+    <hr color="purple">
+    <ul class="topnav">
+      <li><a  href="index.html">Home</a></li>
+      <li class="right"><a href="cart.html" id="cart">Cart: 0</a></li>
+      <li class="right"><a href="login.html">Login</a></li>
+      <li class="right"><a href="index.html">Help</a></li>
+      <li class="right"><a href="orders.html">Track Order</a></li>
+    </ul>
+
+
+
+
+    <div class="contentcenter" style="height: 400px;">
+        <div class="contentleft" style="height: 400px; background-color: white;">
+            <div class="flowers">
+                <div id="list" class="cards"></div>
+            </div>
+        </div>
+        <div class="contentright" style="height: 400px;">
+            <div id="name"  style="font-size: xx-large; text-align: center; font-weight: normal;">Flower Name</div>
+            <form>
+
+                <h3>Delivery Date*</h3>
+                <input id="date">
+                <h3>Purchasing Options</h3>
+
+            <form id="choices">
+                <input type="radio" id="option1" name="purchasing">
+                <label for="option1" name="option1">Start a Subscription: ${cost} dollars + free shipping</label>
+                <br>
+                <p><b>Best Value:</b> up to 30% off + free shipping on subscription deliveries</p>
+                <p><b>Flexible:</b> Pick your flowers, date & recipient every month, or set it & forget it</p>
+                <p><b>No Obligations:</b> Skip as often as you like. Cancel anytime</p>
+
+
+                <br>
+
+                <input type="radio" id="option2" name="purchasing">
+                <label for="option2" name="option2">One time purchase: ${cost+25} dollars</label>
+
+
+            </div>
+
+            </form>
+        </div> 
+    </div>
+
+
+
+
+
+    <script>
+
+        
+
+
+
+
+
+
+    </script>
+
+
+  </body>
+</html>

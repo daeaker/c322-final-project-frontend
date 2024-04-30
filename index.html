@@ -12,7 +12,7 @@
     <hr color="purple">
     <ul class="topnav">
       <li><a  href="index.html">Home</a></li>
-      <li class="right"><a href="cart.html">Cart</a></li>
+      <li class="right"><a href="cart.html" id="cart">Cart: 0</a></li>
       <li class="right"><a href="login.html">Login</a></li>
       <li class="right"><a href="index.html">Help</a></li>
       <li class="right"><a href="orders.html">Track Order</a></li>
@@ -65,22 +65,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>src="configuration.js"</script>
     <script>src="register.js"</script>
 
@@ -90,6 +74,10 @@
         let curFlowerId = 1
         let flowers = []
         let list = document.getElementById("list")
+        window.localStorage.setItem("basket", 0);
+
+        document.getElementById("cart").innerHTML = "Cart: " + window.localStorage.getItem("basket")
+        
         
 
         displayTheFlowers()
@@ -138,6 +126,8 @@
                 div.onclick = function () {
                     curFlowerId = flower.id
                     window.localStorage.setItem("selectedFlower", curFlowerId)
+                    document.getElementById("cart").innerHTML = "Cart: 1"
+                    window.localStorage.setItem("basket", 1)
                     window.location.href = "basket.html?flowerId=" + curFlowerId
                 }
 
