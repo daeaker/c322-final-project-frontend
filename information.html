@@ -47,8 +47,10 @@
         <label for="relationship">Relationship*:</label><br>
         <select id="relationship" name="relationship" required>
             <option value="">Select</option>
-            <option value="Single">Single</option>
-            <option value="In a Relationship">In a Relationship</option>
+            <option value="Self">Self</option>
+            <option value="Friend">Friend</option>
+            <option value="Family">Family</option>
+            <option value="Other">Other</option>
         </select><br><br>
         
         <label for="address">Address*:</label><br>
@@ -191,6 +193,7 @@
             cost = cost-10
         }
 
+        window.localStorage.setItem("price", cost)
 
         // update flower name
         let name = document.getElementById("name")
@@ -201,7 +204,36 @@
         `
 
         let date = document.getElementById("date")
-        date.innerHTML = `<h4>Delivery Date</h4><p>${window.localStorage.getItem("deliveryDate")}</p>`
+        date.innerHTML = `<h4>Delivery Date</h4><p style="color:green">${window.localStorage.getItem("deliveryDate")}</p>`
+
+      }
+
+
+
+
+      // what happens when the button is pressed
+      function button() {
+
+        let firstName= document.getElementById("firstName").value
+        window.localStorage.setItem("firstName", firstName)
+        let lastName = document.getElementById("lastName").value
+        window.localStorage.setItem("lastName", lastName)
+        let relationship= document.getElementById("relationship").value
+        window.localStorage.setItem("relationship", relationship)
+        let address = document.getElementById("address").value
+        window.localStorage.setItem("address", address)
+        let apartment = document.getElementById("apartment").value
+        window.localStorage.setItem("apartment", apartment)
+        let city = document.getElementById("city").value
+        window.localStorage.setItem("city", city)
+        let state = document.getElementById("state").value
+        window.localStorage.setItem("state", state)
+        let zipCode = document.getElementById("zipCode").value
+        window.localStorage.setItem("zipCode", zipCode)
+
+        window.location.href = "placeorder.html"
+
+
 
       }
 

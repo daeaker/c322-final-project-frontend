@@ -45,13 +45,67 @@
         <h4 id="savings">You are saving $0.00 on this order!</h4>
         <div class="total-section">
             <p id="subtotal">Subtotal: [Subtotal Amount]</p>
-            <p id="delivery">Delivery Amount: [Delivery Amount]</p>
-            <p id="discount">Delivery Discount: [Delivery Discount Amount]</p>
+            <p id="delivery">Delivery Amount: $25.00</p>
+            <p id="discount" style="color: green;">Delivery Discount: [Delivery Discount Amount]</p>
             <p>Tax: $0.00</p>
             <h3 id="total">Order Total: [Order Total Amount]</h3>
         </div>
     </div>
 
+
+
+
+
+
+
+
+
+    <script>
+      let host = "http://localhost:8080";
+
+      let date = document.getElementById("date")
+      date.innerHTML = window.localStorage.getItem("deliveryDate")
+      let price = document.getElementById("price")
+      price.innerHTML = "$" + window.localStorage.getItem("price")
+      let name = document.getElementById("name")
+      name.innerHTML = window.localStorage.getItem("firstName") + " " + window.localStorage.getItem("lastName")
+      let address = document.getElementById("address")
+      address.innerHTML = window.localStorage.getItem("address") + " " + window.localStorage.getItem("apartment")
+      let city = document.getElementById("city")
+      city.innerHTML = window.localStorage.getItem("city") + ", " + window.localStorage.getItem("state") + " " + window.localStorage.getItem("zipCode")
+
+      let save = 0.00
+      if (window.localStorage.getItem("loggedin")) {
+        save = 10.00
+      }
+      let savings = document.getElementById("savings")
+      savings.innerHTML = "You are saving $" + save + ".00 on this order!"
+
+      let cost = parseInt(window.localStorage.getItem("price")) + save
+      let subtotal = document.getElementById("subtotal")
+      subtotal.innerHTML = "Subtotal: $" + cost + ".00"
+
+      let discount = document.getElementById("discount")
+      discount.innerHTML = "Delivery Discount: -$" + save + ".00"
+
+      let tot = parseInt(window.localStorage.getItem("price")) + 25
+      let total = document.getElementById("total")
+      total.innerHTML = "Order Total: $" + tot + ".00"
+ 
+
+
+
+
+      
+
+
+
+
+
+
+
+
+    </script>
 
 
 
