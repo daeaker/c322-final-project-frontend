@@ -97,8 +97,10 @@ async function login() {
         if(response.status == 200) {  
             alert("The login was successful!");
             const token = await response.text();
-            saveTheToken(token);            
-            location.href = "index.html";
+            saveTheToken(token);    
+            window.localStorage.setItem("loggedin", true)  
+            alert(window.localStorage.getItem("previous"))   
+            location.href = window.localStorage.getItem("previous");
         } else {
             console.log(`response status:${response.status}`);   
             removeTheToken();         
@@ -110,7 +112,7 @@ async function login() {
         removeTheToken();       
         alert("Something went wrong!");
       }    
-      window.localStorage.setItem("loggedin", true)
+      
 }
 
 async function logout() {   

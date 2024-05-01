@@ -12,7 +12,7 @@
   <body>
     <hr color="purple">
     <ul class="topnav">
-      <li><a  href="index.html">Home</a></li>
+        <li><a  href="index.html"><img src="homeimage.png"></a></li>
     </ul>
 
     <form id="top">
@@ -20,8 +20,8 @@
             <img src="delivery.png" alt="Header Image" width="400">
         </div>
         <div class="button-container">
-            <a href="login.html" class="button">Log In</a>
-            <a href="login.html" class="button">Sign Up</a>
+            <a onclick="login()" class="button">Log In</a>
+            <a onclick="login()" class="button">Sign Up</a>
         </div>
     </form>
 
@@ -64,7 +64,7 @@
     </form>
 
     <div style="text-align: center;">
-        <button style="background-color: darkgreen; color: white; text-align: center; align-content: center; width: 100px; height: 30px;">Continue</button>
+        <button style="background-color: darkgreen; color: white; text-align: center; align-content: center; width: 100px; height: 30px;" onclick="button()">Continue</button>
     </div>
 
 
@@ -89,9 +89,24 @@
 
 
 <script>
-    if (window.localStorage.getItem("loggedin") == true) {
+    if (window.localStorage.getItem("loggedin")) {
         document.getElementById("top").style.display="none"
     }
+
+
+
+    function login() {
+        window.localStorage.setItem("previous", "information.html")
+        window.location.href = "login.html"
+    }
+
+
+
+
+
+
+
+
 </script>
 
 
