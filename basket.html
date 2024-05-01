@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a question</title>
+    <title>Basket</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cards.css">
@@ -190,6 +190,8 @@
 
         let date = document.getElementById("date").value
         localStorage.setItem("deliveryDate", date)
+        document.getElementById("cart").innerHTML = "Cart: 1"
+        window.localStorage.setItem("basket", 1)
 
         window.location.href = 'information.html'
 

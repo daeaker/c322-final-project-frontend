@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a question</title>
+    <title>Index</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cards.css">
@@ -127,8 +127,9 @@
                 div.onclick = function () {
                     curFlowerId = flower.id
                     window.localStorage.setItem("selectedFlower", curFlowerId)
-                    document.getElementById("cart").innerHTML = "Cart: 1"
-                    window.localStorage.setItem("basket", 1)
+                    
+                    
+                    window.localStorage.setItem("name", flower.name)
                     window.location.href = "basket.html?flowerId=" + curFlowerId
                 }
 

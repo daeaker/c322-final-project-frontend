@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a question</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cards.css">
@@ -23,10 +23,89 @@
     <h2>My Orders</h2>
     <hr color="gray">
 
-    <div class="flowers">
-        <div id="list" class="cards"></div>
+    <div id="orders">You have no orders
     </div>
 
+    
+
+
+
+
+
+
+
+    <script>
+      let host = "http://localhost:8080"
+
+      if (!window.localStorage.getItem("loggedin")) {
+        window.localStorage.setItem("previous", "orders.html")
+        window.location.href = "login.html"
+      }
+
+
+      orders()
+
+      async function orders() {
+        let request = {
+            method: "GET",
+            // headers: myHeaders,
+            redirect: "follow"
+        }
+
+        let response = await fetch(host + "/orders/1", request)
+        let orders = []
+        orders = await response.json()
+        
+
+        let page = document.getElementById("orders")
+
+        if (orders.length>0) {
+
+          page.innerHTML = ""
+
+          let order = {}
+
+          for (let i = 0; i<orders.length; i++) {
+            order = orders[i]
+
+            let name = order.flowerName
+            let cost = order.cost
+            let firstName = order.firstName
+            let lastName = order.lastName
+            let status = order.status
+
+            let div = document.createElement("div")
+            div.id = `${order.id}`
+
+            let innerHTML = `
+
+                <div>
+                    <p>${name}, $${cost}.00, ${firstName} ${lastName}, ${status}<p>
+                </div>
+
+                    `
+                    div.innerHTML = innerHTML
+                    page.appendChild(div)
+
+
+
+          }
+
+        }
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
 
 
 

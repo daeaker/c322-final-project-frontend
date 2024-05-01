@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add a question</title>
+    <title>Place Order</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="cards.css">
@@ -51,7 +51,11 @@
             <h3 id="total">Order Total: [Order Total Amount]</h3>
         </div>
     </div>
+    <p style="text-align: right;">By Clicking "Place Order" you agree to the Terms of Use and Privacy Policy</p>
 
+    <div style="margin-right: auto; text-align: right;">
+      <button onclick="button()" style="background-color: rgb(0, 87, 0); text-align: center; color:white; width: 100px; height: 30px;">Place Order</button>
+    </div>
 
 
 
@@ -91,12 +95,44 @@
       let tot = parseInt(window.localStorage.getItem("price")) + 25
       let total = document.getElementById("total")
       total.innerHTML = "Order Total: $" + tot + ".00"
+      window.localStorage.setItem("tot", tot)
  
 
 
+      async function button() {
+        let order = {}
+
+        order.id = 500
+        order.customerId = 1
+        order.flowerName = window.localStorage.getItem("name")
+        order.cost = parseInt(window.localStorage.getItem("tot"))
+        order.firstName = window.localStorage.getItem("firstName")
+        order.lastName = window.localStorage.getItem("lastName")
+        order.status = "submitted"
+
+        let request = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(order),
+          redirect: "follow"
+        }
+
+        let response = await fetch(host + "/orders", request)
+        let result = await response.json()
+
+        window.location.href = "orders.html"
+
+        return result
+
+        
+        }
 
 
       
+
+
 
 
 
